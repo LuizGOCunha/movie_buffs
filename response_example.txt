@@ -1,0 +1,21 @@
+{'adult': False,
+             'backdrop_path': '/4HWAQu28e2yaWrtupFPGFkdNU7V.jpg',
+             'genre_ids': [35, 80, 9648],
+             'id': 546554,
+             'original_language': 'en',
+             'original_title': 'Knives Out',
+             'overview': 'When renowned crime novelist Harlan Thrombey is '
+                         'found dead at his estate just after his 85th '
+                         'birthday, the inquisitive and debonair Detective '
+                         'Benoit Blanc is mysteriously enlisted to '
+                         "investigate. From Harlan's dysfunctional family to "
+                         'his devoted staff, Blanc sifts through a web of red '
+                         'herrings and self-serving lies to uncover the truth '
+                         "behind Harlan's untimely death.",
+             'popularity': 234.196,
+             'poster_path': '/pThyQovXQrw2m0s9x82twj48Jq4.jpg',
+             'release_date': '2019-11-27',
+             'title': 'Knives Out',
+             'video': False,
+             'vote_average': 7.9,
+             'vote_count': 9917},
