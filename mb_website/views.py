@@ -19,11 +19,8 @@ def search_bar(request:WSGIRequest):
         search = request.GET['search']
         # Search through the API
         results = search_movies(search)
-        all_results = []
-        for page in results.values():
-            all_results += page
         models = []
-        for movie in all_results:
+        for movie in results:
             model = Movie(title=movie["title"], overview=movie["overview"], release_date=movie["release_date"], rating=movie['vote_average'])
             models.append(model)
 
