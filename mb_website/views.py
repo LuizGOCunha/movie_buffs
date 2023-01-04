@@ -11,12 +11,10 @@ from .models import Movie
 def search_bar(request:WSGIRequest):
     context = {}
     context['form'] = SearchBar
-    object_list = list(range(10))
-    print("This is the request:", type(request))
-    print("resquest.get:", request.GET)
     if 'search' in request.GET.keys():
         # Get the search from the parameters
         search = request.GET['search']
+        print("*****", search)
         # Search through the API
         results = search_movies(search)
         models = []
@@ -24,6 +22,13 @@ def search_bar(request:WSGIRequest):
             model = Movie(title=movie["title"], overview=movie["overview"], release_date=movie["release_date"], rating=movie['vote_average'])
             models.append(model)
 
-        context['movies'] = models
+        # Create Paginator instance
+        paginator = Paginator(models, 3)
+        # Get the page number that is being requested
+        page_number = request.GET.get('page', 1)
+        # Exhibit the appropriate page number
+        page = paginator.page(page_number)
+        # Pass the page content in the context instead of the raw info
+        context['movies'] = page
         
     return render(request, "search_bar.html", context)

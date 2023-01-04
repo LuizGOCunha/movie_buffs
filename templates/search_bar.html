@@ -18,5 +18,18 @@
       <br>
       <br>
     {% endfor %}
+
+
+    {% if request.GET.search and movies.has_previous %}
+      <a href="{% url 'searchbar' %}?search={{ request.GET.search }}&page={{movies.previous_page_number}}">Previous Page</a>
+    {% endif %}
+    
+    {% for page in movies.paginator.page_range %}
+    <a href="{% url 'searchbar' %}?search={{ request.GET.search }}&page={{ page }}">{{ page }}</a>
+    {% endfor %}
+
+    {% if request.GET.search and movies.has_next %}
+      <a href="{% url 'searchbar' %}?search={{ request.GET.search }}&page={{movies.next_page_number}}">Next Page</a>
+    {% endif %}
   </body>
 </html>
